@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'com.adarshr.test-logger' version '1.7.0'
+    id 'com.github.johnrengelman.shadow' version '4.0.2'
+    id 'java'
+    id 'application'
+}
+
+version rootProject.file('VERSION.txt').text.trim()
+group 'com.hhandoko.svm.flyway'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'org.flywaydb:flyway-core:6.0.0-beta'
+    compile 'org.postgresql:postgresql:42.2.5'
+    compile 'org.slf4j:slf4j-api:1.7.26'
+
+    compileOnly 'com.oracle.substratevm:svm:19.0.0'
+
+}
+
+mainClassName = "${rootProject.group}.Application"
